@@ -10,6 +10,8 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,16 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let button = sender as! UIButton
+        let controller = segue.destination as! EnglishViewController
+        
+        controller.alphabet = button.currentTitle!
+    }
+    
+    @IBAction func alphabetBtnPressed (_ sender: UIButton) {
+        performSegue(withIdentifier: "DetailSegue", sender: sender)
+    }
 
 }
 
