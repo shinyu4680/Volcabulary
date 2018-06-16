@@ -1,45 +1,41 @@
 //
-//  ChineseViewController.swift
+//  FavDetailViewController.swift
 //  Volcabulary
 //
-//  Created by kevin on 2018/6/15.
+//  Created by kevin on 2018/6/16.
 //  Copyright © 2018 KevinChang. All rights reserved.
 //
 
 import UIKit
 
-class ChineseViewController: UIViewController {
+class FavDetailViewController: UIViewController {
 
-    @IBOutlet weak var vocLabel: UILabel!
-    @IBOutlet weak var sentenceTextView: UITextView!
+    @IBOutlet weak var engLabel: UILabel!
+    @IBOutlet weak var engTextView: UITextView!
+    @IBOutlet weak var chiLabel: UILabel!
+    @IBOutlet weak var chiTextView: UITextView!
     
-    var vocabulary = ""
-    var sentence = ""
-    var navTitle = ""
+    var voc: VocabularyFav!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        vocLabel.text = vocabulary
-        self.sentenceTextView.text = sentence
-        self.navigationItem.title = navTitle
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
     
-    @IBAction func backToEnglish (_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        engLabel.text = voc.engTitle
+        engTextView.text = voc.engSentence
+        chiLabel.text = voc.chiTitle
+        chiTextView.text = voc.chiSentence
+        self.navigationItem.title = voc.engTitle
     }
     
-    @IBAction func swipeToForward(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+
     /*
     // MARK: - Navigation
 
